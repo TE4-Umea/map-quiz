@@ -3,17 +3,20 @@
 export const textChoices = [
     {
         id: 1,
-        text: "Detta CV är en samling av Tim's historier. Allting började med skolan, Tim har alltid gått skolan med när det kom till högstadiet så var det ett mycket viktigt val man behövde göra som skulle avgöra hela livets gång.\
-       Det viktiga som pratas om är valet av vilket gymnasie och vilken linje han skall gå. Tim har alltid varit mycket intresserad av teknik och kemi som liten och så ett val mellan teknik linjen och naturlinjen en självklarhet. \
-       \nVad väljer du att göra?",
+        text: "https://earth.app.goo.gl/?apn=com.google.earth&isi=293622097&ius=googleearth&link=https%3a%2f%2fearth.google.com%2fweb%2f%4063.8247454,20.2682616,7.26515179a,0d,60y,273.91716745h,83.28991529t,0r%2fdata%3dIjAKLEFGMVFpcFBQcWs5TXQyaU9NQ2dqaVFyQk5tLV9CQUhkdVBCdmdtZnBJZW5vEAU6AwoBMA",
         options: [
             {
-                text: 'Börja Teknik på NTI gymnasiet',
+                text: 'picCorrect.png',
                 setState: { teknik: true },
                 nextText: 2
             },
             {
-                text: 'Börja Natur på Maja Beskow gymnasiet',
+                text: 'picFalse.png',
+                setState: { natur: true },
+                nextText: 3
+            },
+            {
+                text: 'picFalse2.png',
                 setState: { natur: true },
                 nextText: 3
             }
