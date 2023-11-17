@@ -6,17 +6,14 @@ export const textNodes = [
         options: [
             {
                 text: "/pic1/picCorrect.png",
-                setState: { teknik: true },
                 nextText: 2
             },
             {
                 text: '/pic1/picFalse.png',
-                setState: { natur: true },
                 nextText: 2
             },
             {
                 text: '/pic1/picFalse2.png',
-                setState: { natur: true },
                 nextText: 2
             }
         ]
@@ -28,19 +25,17 @@ export const textNodes = [
         options: [
             {
                 text: "/pic2/picFalse2.png",
-                setState: { teknik: true },
                 nextText: 3
             },
             {
                 text: '/pic2/picFalse.png',
-                setState: { natur: true },
                 nextText: 3
             },
             {
                 text: '/pic2/picCorrect.png',
-                setState: { natur: true },
                 nextText: 3
             }
         ]
     }
 ]
+
