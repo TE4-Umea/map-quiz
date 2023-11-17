@@ -6,6 +6,7 @@ function App() {
   const textElement = document.getElementById('text')
   const textElement1 = document.getElementById('text1')
   const optionButtonsElement = document.getElementById('option-buttons')
+  const container = document.getElementById('container')
   let points = 0;
   let correctButton = '';
   let incorrectButton = '';
@@ -58,19 +59,22 @@ function App() {
       const button = document.getElementById(correctButton)
       button.style.backgroundColor = 'green'
     } else {
+      points += 0
       console.log(incorrectButton)
       const button = document.getElementById(incorrectButton)
       button.style.backgroundColor = 'red'
     }
     setTimeout(() => {
-      console.log("Delayed for 3 second.");
-
       const nextTextNodeId = option.nextText
       if (nextTextNodeId <= 0) {
         return startGame()
       }
       state = Object.assign(state, option.setState)
       showTextNode(nextTextNodeId)
+
+      if (option.text === undefined) {
+        container.
+      }
     }, "3000");
   }
 
