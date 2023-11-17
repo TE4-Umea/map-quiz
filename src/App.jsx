@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
+import { textNodes } from './components/choices'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   const textElement = document.getElementById('text')
   const optionButtonsElement = document.getElementById('option-buttons')
 
@@ -23,6 +20,18 @@ function App() {
       optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
 
+    // textNode.options.forEach(option => {
+    //   if (showOption(option)) {
+    //     const button = document.createElement('button')
+    //     button.innerHTML = option.text
+    //     // const img = document.createElement('img')
+    //     // img.src = option.text
+    //     button.classList.add('btn')
+    //     button.addEventListener('click', () => selectOption(option))
+    //     optionButtonsElement.appendChild(button)
+    //     // button.appendChild(img)
+    //   }
+    // })
     textNode.options.forEach(option => {
       if (showOption(option)) {
         const button = document.createElement('button')
@@ -47,29 +56,21 @@ function App() {
     showTextNode(nextTextNodeId)
   }
 
+  startGame()
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+        <div id="text">Text</div>
+        <div id="option-buttons" className="btn-grid">
+          {/* <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" /> */}
+          <button className="btn">Option 1</button>
+          <button className="btn">Option 2</button>
+          <button className="btn">Option 3</button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
