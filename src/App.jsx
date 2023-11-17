@@ -6,105 +6,47 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const textElement = document.getElementById('text')
+  const optionButtonsElement = document.getElementById('option-buttons')
 
   let state = {}
-  function startCV() {
+
+  function startGame() {
     state = {}
-    showTextChoice(1)
+    showTextNode(1)
   }
 
-  function showTextChoice(textChoiceIndex) {
-    const textChoice = textChoices.find(textChoice => textChoice.id === textChoiceIndex)
-    textElement.innerText = textChoice.text
+  function showTextNode(textNodeIndex) {
+    const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    textElement.innerText = textNode.text
     while (optionButtonsElement.firstChild) {
       optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
 
-    textChoice.options.forEach(option => {
+    textNode.options.forEach(option => {
       if (showOption(option)) {
         const button = document.createElement('button')
         button.innerText = option.text
         button.classList.add('btn')
         button.addEventListener('click', () => selectOption(option))
         optionButtonsElement.appendChild(button)
-
-
-        window.addEventListener("beforeunload", function (e) {
-          localStorage['Choice'] = textChoice.id
-          window.addEventListener("load", function (e) {
-            Choice = localStorage.getItem('Choice');
-
-          });
-        });
       }
     })
   }
-
-
 
   function showOption(option) {
     return option.requiredState == null || option.requiredState(state)
   }
 
   function selectOption(option) {
-    const nextTextChoiceId = option.nextText
-    if (nextTextChoiceId <= 0) {
-      return startCV()
+    const nextTextNodeId = option.nextText
+    if (nextTextNodeId <= 0) {
+      return startGame()
     }
     state = Object.assign(state, option.setState)
-    showTextChoice(nextTextChoiceId)
+    showTextNode(nextTextNodeId)
   }
 
-  startCV()
-  let state = {}
-  function startCV() {
-    state = {}
-    showTextChoice(1)
-  }
-
-  function showTextChoice(textChoiceIndex) {
-    const textChoice = textChoices.find(textChoice => textChoice.id === textChoiceIndex)
-    textElement.innerText = textChoice.text
-    while (optionButtonsElement.firstChild) {
-      optionButtonsElement.removeChild(optionButtonsElement.firstChild)
-    }
-
-    textChoice.options.forEach(option => {
-      if (showOption(option)) {
-        const button = document.createElement('button')
-        button.innerText = option.text
-        button.classList.add('btn')
-        button.addEventListener('click', () => selectOption(option))
-        optionButtonsElement.appendChild(button)
-
-
-        window.addEventListener("beforeunload", function (e) {
-          localStorage['Choice'] = textChoice.id
-          window.addEventListener("load", function (e) {
-            Choice = localStorage.getItem('Choice');
-
-          });
-        });
-      }
-    })
-  }
-
-
-
-  function showOption(option) {
-    return option.requiredState == null || option.requiredState(state)
-  }
-
-  function selectOption(option) {
-    const nextTextChoiceId = option.nextText
-    if (nextTextChoiceId <= 0) {
-      return startCV()
-    }
-    state = Object.assign(state, option.setState)
-    showTextChoice(nextTextChoiceId)
-  }
-
-  startCV()
 
   return (
     <>
