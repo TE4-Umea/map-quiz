@@ -10,6 +10,7 @@ function App() {
   let points = 0;
   let correctButton = '';
   let state = {}
+  let canAnswer = true;
 
   function startGame() {
     state = {}
@@ -49,6 +50,9 @@ function App() {
   }
 
   function selectOption(option) {
+    if (!canAnswer) {
+      return;
+    }
     // all buttons become red
     const button = document.getElementById('button1')
     button.style.backgroundColor = 'red'
@@ -63,6 +67,8 @@ function App() {
     if (option.text.includes('picCorrect.png')) {
       points += 1
     }
+
+    canAnswer = false;
 
     console.log(textNodes)
     setTimeout(() => {
@@ -81,6 +87,7 @@ function App() {
         }
         state = Object.assign(state, option.setState)
         showTextNode(nextTextNodeId)
+        canAnswer = true;
       }
     }, "3000");
   }
