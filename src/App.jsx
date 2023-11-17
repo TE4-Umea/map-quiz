@@ -63,14 +63,6 @@ function App() {
     buttonCorr.style.backgroundColor = 'green'
     if (option.text.includes('picCorrect.png')) {
       points += 1
-      console.log(correctButton)
-      const button = document.getElementById(correctButton)
-      button.style.backgroundColor = 'green'
-    } else {
-      points += 0
-      console.log(incorrectButton)
-      const button = document.getElementById(incorrectButton)
-      button.style.backgroundColor = 'red'
     }
 
     setTimeout(() => {
@@ -81,9 +73,9 @@ function App() {
       state = Object.assign(state, option.setState)
       showTextNode(nextTextNodeId)
 
-      if (option.text === undefined) {
-        container.
-      }
+      // if (option.text === undefined) {
+      //   container.
+      // }
     }, "3000");
   }
 
