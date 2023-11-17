@@ -49,7 +49,6 @@ function App() {
   }
 
   function selectOption(option) {
-    console.log(option)
     // all buttons become red
     const button = document.getElementById('button1')
     button.style.backgroundColor = 'red'
@@ -63,26 +62,25 @@ function App() {
     buttonCorr.style.backgroundColor = 'green'
     if (option.text.includes('picCorrect.png')) {
       points += 1
-      console.log(correctButton)
-      const button = document.getElementById(correctButton)
-      button.style.backgroundColor = 'green'
-    } else {
-      points += 0
-      console.log(incorrectButton)
-      const button = document.getElementById(incorrectButton)
-      button.style.backgroundColor = 'red'
     }
 
+    console.log(textNodes)
     setTimeout(() => {
-      const nextTextNodeId = option.nextText
-      if (nextTextNodeId <= 0) {
-        return startGame()
-      }
-      state = Object.assign(state, option.setState)
-      showTextNode(nextTextNodeId)
-
-      if (option.text === undefined) {
-        container.
+      if (option.nextText > textNodes.length) {
+        console.log('game over')
+        const page = document.getElementById('container')
+        page.innerHtml = ' '
+        const text = document.createElement('h1')
+        text.innerText = `You got ${points} out of ${textNodes.length} correct!`
+        page.appendChild(text)
+      } else {
+        console.log('not game over')
+        const nextTextNodeId = option.nextText
+        if (nextTextNodeId <= 0) {
+          return startGame()
+        }
+        state = Object.assign(state, option.setState)
+        showTextNode(nextTextNodeId)
       }
     }, "3000");
   }
