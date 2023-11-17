@@ -15,7 +15,7 @@ function App() {
 
   function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    textElement.innerText = textNode.text
+    textElement.src = textNode.text
     while (optionButtonsElement.firstChild) {
       optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
@@ -23,10 +23,12 @@ function App() {
     textNode.options.forEach(option => {
       if (showOption(option)) {
         const button = document.createElement('button')
-        button.innerText = option.text
+        const img = document.createElement('img')
+        img.src = option.text
         button.classList.add('btn')
         button.addEventListener('click', () => selectOption(option))
         optionButtonsElement.appendChild(button)
+        button.appendChild(img)
       }
     })
   }
