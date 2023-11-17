@@ -36,6 +36,50 @@ export const textNodes = [
                 nextText: 3
             }
         ]
+    },
+    {
+        id: 3,
+        text1: 'Vilken av dessa bilder nedan passar in med bilden ovan?',
+        text: '/pic3/picture.png',
+        options: [
+            {
+                text: "/pic3/picFalse2.png",
+                setState: { teknik: true },
+                nextText: 4
+            },
+            {
+                text: '/pic3/picFalse.png',
+                setState: { natur: true },
+                nextText: 4
+            },
+            {
+                text: '/pic3/picCorrect.png',
+                setState: { natur: true },
+                nextText: 4
+            }
+        ]
+    },
+    {
+        id: 4,
+        text1: 'Vilken av dessa bilder nedan passar in med bilden ovan?',
+        text: '/pic4/picture.png',
+        options: [
+            {
+                text: "/pic4/picFalse2.png",
+                setState: { teknik: true },
+                nextText: 5
+            },
+            {
+                text: '/pic4/picFalse.png',
+                setState: { natur: true },
+                nextText: 5
+            },
+            {
+                text: '/pic4/picCorrect.png',
+                setState: { natur: true },
+                nextText: 5
+            }
+        ]
     }
 ]
 
