@@ -8,7 +8,6 @@ function App() {
   const optionButtonsElement = document.getElementById('option-buttons')
   let points = 0;
   let correctButton = '';
-  let incorrectButton = '';
   let state = {}
 
   function startGame() {
@@ -25,7 +24,7 @@ function App() {
     }
 
 
-    let i = 0;
+    let i = 1;
     textNode.options.forEach(option => {
       if (showOption(option)) {
         const button = document.createElement('button')
@@ -38,8 +37,6 @@ function App() {
         button.appendChild(img)
         if (option.text.includes('picCorrect.png')) {
           correctButton = button.id
-        } else {
-          incorrectButton = button.id
         }
         i++;
       }
@@ -52,16 +49,21 @@ function App() {
 
   function selectOption(option) {
     console.log(option)
+    // all buttons become red
+    const button = document.getElementById('button1')
+    button.style.backgroundColor = 'red'
+    const button2 = document.getElementById('button2')
+    button2.style.backgroundColor = 'red'
+    const button3 = document.getElementById('button3')
+    button3.style.backgroundColor = 'red'
+
+    // correct button becomes green
+    const buttonCorr = document.getElementById(correctButton)
+    buttonCorr.style.backgroundColor = 'green'
     if (option.text.includes('picCorrect.png')) {
       points += 1
-      console.log(correctButton)
-      const button = document.getElementById(correctButton)
-      button.style.backgroundColor = 'green'
-    } else {
-      console.log(incorrectButton)
-      const button = document.getElementById(incorrectButton)
-      button.style.backgroundColor = 'red'
     }
+
     setTimeout(() => {
       console.log("Delayed for 3 second.");
 
