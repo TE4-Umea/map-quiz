@@ -1,6 +1,7 @@
 export const textNodes = [
     {
         id: 1,
+        text1: 'Vilka av dessa bilder nedan passar in med bilden ovan?',
         text: '/pic1/picture.png',
         options: [
             {
