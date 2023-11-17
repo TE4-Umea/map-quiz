@@ -4,6 +4,7 @@ import { textNodes } from './components/choices'
 
 function App() {
   const textElement = document.getElementById('text')
+  const textElement1 = document.getElementById('text1')
   const optionButtonsElement = document.getElementById('option-buttons')
 
   let state = {}
@@ -16,6 +17,7 @@ function App() {
   function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     textElement.src = textNode.text
+    textElement1.innerText = textNode.text1
     while (optionButtonsElement.firstChild) {
       optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
